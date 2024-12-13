@@ -1,0 +1,8 @@
+name: final_env
+channels:
+- anaconda
+dependencies:
+- matplotlib
+- numpy
+- tensorflow
+

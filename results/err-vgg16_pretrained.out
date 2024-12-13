@@ -1,0 +1,68 @@
+2024-12-12 17:13:55.777632: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-12-12 17:14:04.424962: I tensorflow/core/common_runtime/process_util.cc:146] Creating new thread pool with default inter op setting: 2. Tune using inter_op_parallelism_threads for best performance.
+Traceback (most recent call last):
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/http/client.py", line 1286, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/http/client.py", line 1332, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/http/client.py", line 1281, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/http/client.py", line 1041, in _send_output
+    self.send(msg)
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/http/client.py", line 979, in send
+    self.connect()
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/http/client.py", line 1451, in connect
+    super().connect()
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/http/client.py", line 945, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/socket.py", line 836, in create_connection
+    sock.connect(sa)
+TimeoutError: [Errno 110] Connection timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/site-packages/keras/utils/data_utils.py", line 346, in get_file
+    urlretrieve(origin, fpath, DLProgbar())
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/site-packages/keras/utils/data_utils.py", line 85, in urlretrieve
+    response = urlopen(url, data)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/urllib/request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 110] Connection timed out>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scratch/ptolemy/users/nml162/final/vgnet_model.py", line 65, in <module>
+    vgg16_model = VGG16(input_shape=(img_height, img_width, 3), 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/site-packages/keras/applications/vgg16.py", line 242, in VGG16
+    weights_path = data_utils.get_file(
+                   ^^^^^^^^^^^^^^^^^^^^
+  File "/home/nml162/.conda/envs/final_env/lib/python3.11/site-packages/keras/utils/data_utils.py", line 350, in get_file
+    raise Exception(error_msg.format(origin, e.errno, e.reason))
+Exception: URL fetch failure on https://storage.googleapis.com/tensorflow/keras-applications/vgg16/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5: None -- [Errno 110] Connection timed out
+srun: error: ptolemy-gpu-01: task 0: Exited with exit code 1
+srun: Terminating StepId=28832.0

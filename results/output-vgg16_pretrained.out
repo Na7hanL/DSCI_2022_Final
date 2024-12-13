@@ -1,0 +1,24 @@
+Running on ptolemy-gpu-01
+SLURM Job ID: 28832
+SLURM Task ID: 
+SLURM Node List: ptolemy-gpu-01
+SLURM CPUS on Node: 12
+[name: "/device:CPU:0"
+device_type: "CPU"
+memory_limit: 268435456
+locality {
+}
+incarnation: 15052326092006885439
+xla_global_id: -1
+]
+
+Total Number of Images: 11788
+
+Collecting Training Data...
+Found 11788 files belonging to 200 classes.
+Using 9431 files for training.
+
+Collecting Validation Data...
+Found 11788 files belonging to 200 classes.
+Using 2357 files for validation.
+Downloading data from https://storage.googleapis.com/tensorflow/keras-applications/vgg16/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5
